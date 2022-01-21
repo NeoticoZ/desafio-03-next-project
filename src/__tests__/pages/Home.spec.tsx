@@ -129,7 +129,7 @@ describe('Home', () => {
   it('should be able to render posts documents info', () => {
     const postsPagination = mockedQueryReturn;
 
-    render(<App postsPagination={postsPagination} />);
+    render(<App postsPagination={postsPagination} preview={false} />);
 
     screen.getByText('Como utilizar Hooks');
     screen.getByText('Pensando em sincronização em vez de ciclos de vida');
@@ -147,7 +147,7 @@ describe('Home', () => {
   it('should be able to navigate to post page after a click', () => {
     const postsPagination = mockedQueryReturn;
 
-    render(<App postsPagination={postsPagination} />, {
+    render(<App postsPagination={postsPagination} preview={false} />, {
       wrapper: RouterWrapper,
     });
 
@@ -185,7 +185,7 @@ describe('Home', () => {
       },
     ];
 
-    render(<App postsPagination={postsPagination} />);
+    render(<App postsPagination={postsPagination} preview={false} />);
 
     screen.getByText('Como utilizar Hooks');
     const loadMorePostsButton = screen.getByText('Carregar mais posts');
@@ -206,7 +206,7 @@ describe('Home', () => {
     const postsPagination = mockedQueryReturn;
     postsPagination.next_page = null;
 
-    render(<App postsPagination={postsPagination} />);
+    render(<App postsPagination={postsPagination} preview={false} />);
 
     screen.getByText('Como utilizar Hooks');
     screen.getByText('Criando um app CRA do zero');
