@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
 import Prismic from '@prismicio/client';
@@ -12,7 +13,6 @@ import { FiUser } from 'react-icons/fi';
 
 import commonStyles from '../styles/common.module.scss';
 import styles from './home.module.scss';
-import { useEffect, useState } from 'react';
 
 interface Post {
   uid?: string;

@@ -1,24 +1,25 @@
+import { useMemo } from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import Prismic from '@prismicio/client';
-
-import Header from '../../components/Header';
-
-import { getPrismicClient } from '../../services/prismic';
-
-import commonStyles from '../../styles/common.module.scss';
-import styles from './post.module.scss';
-
-import { AiOutlineClockCircle, AiOutlineCalendar } from 'react-icons/ai';
-import { FiUser } from 'react-icons/fi';
 import Head from 'next/head';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+
+import Prismic from '@prismicio/client';
+import { RichText } from 'prismic-dom';
+import { getPrismicClient } from '../../services/prismic';
 
 import { format } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
-import { useRouter } from 'next/router';
-import { RichText } from 'prismic-dom';
+
+import Header from '../../components/Header';
+
+import { AiOutlineClockCircle, AiOutlineCalendar } from 'react-icons/ai';
+import { FiUser } from 'react-icons/fi';
+
 import { Comments } from '../../components/Comments';
-import Link from 'next/link';
-import { useMemo } from 'react';
+
+import commonStyles from '../../styles/common.module.scss';
+import styles from './post.module.scss';
 
 interface Post {
   uid?: string;
