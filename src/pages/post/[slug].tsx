@@ -135,7 +135,9 @@ export default function Post({
         </article>
       </main>
 
-      <footer>
+      <div className={styles.separator}></div>
+
+      <footer className={commonStyles.container}>
         <div className={styles.neighborLinks}>
           {previousPost && (
             <div>
@@ -148,7 +150,7 @@ export default function Post({
           )}
 
           {nextPost && (
-            <div>
+            <div className={!previousPost ? styles.moveToRight : ''}>
               {nextPost.data.title}
 
               <Link href={`/post/${nextPost.uid}`}>
@@ -161,7 +163,7 @@ export default function Post({
         <Comments />
 
         {preview && (
-          <aside className={styles.preview}>
+          <aside className={commonStyles.preview}>
             <Link href="/api/exit-preview">
               <a>Sair do modo Preview</a>
             </Link>
