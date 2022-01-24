@@ -55,6 +55,10 @@ export default function Post({
 }: PostProps) {
   const router = useRouter();
 
+  if (router.isFallback) {
+    return <p>Carregando...</p>;
+  }
+
   const amountWordsBody = RichText.asText(
     post.data.content.reduce((acc, data) => [...acc, ...data.body], [])
   ).split(' ');
@@ -78,10 +82,6 @@ export default function Post({
 
     return post.last_publication_date !== post.first_publication_date;
   }, [post, router.isFallback]);
-
-  if (router.isFallback) {
-    return <p>Carregando...</p>;
-  }
 
   return (
     <>
